@@ -2,6 +2,8 @@
 
 Update 1: I have coded and been feature testing as I go. However, I have been having trouble conceptualizing the unit tests. I have spoken to other students and have decided that I will use mocking to create the unit test. I will comment out the entirety of the code and unit test from there. I then try dependency injection at a later date - I think I'm able to separate individual notes from the list of notes in list.rb, so my code will have the view_body and add_body methods in a separate file called note.rb.
 
+Update 2: I now know I have to do class extraction before dependency injection. I have also hit a roadblock with unit tests because I am unsure how to test functions within an irb interactive menu. I am least confident with the spec file. Let me do the class extraction first (yes, I know this is not following the process, but I will need to ask someone about it, and I would rather have more clarity when asking, and also I don't want to sit around doing nothing)
+
 ## The below is to help myself keep track of the feature test I run
 
 recall that the interactive menu gives us the following options:  
