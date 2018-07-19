@@ -6,12 +6,12 @@ class List
 		@list = []
 	end
 
-	def interactive_menu
+ 	def interactive_menu
 		loop do
 			print_menu
 			process(STDIN.gets.chomp)
 		end
-	end
+ 	end
 
 	def print_menu
 		puts " "
