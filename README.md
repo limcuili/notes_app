@@ -8,17 +8,7 @@ Update 2: I now know I have to do class extraction before dependency injection. 
 
 ## The below is to help myself keep track of the feature test I run
 
-recall that the interactive menu gives us the following options:  
-1. View all note titles
-2. View a body of a note
-3. Add a new note title
-4. Add contents of a note
-5. Delete a note
-6. Save the notes to students.csv
-7. Load the notes from students.csv
-9. Exit
-
-Testing the functionality of Actions 1-5 inclusive:  
+Before class extraction: Testing the functionality of Actions 1-5 inclusive:  
 ```
 irb  
 require './lib/list.rb'
