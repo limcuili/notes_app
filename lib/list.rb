@@ -21,8 +21,8 @@ class List
 	  puts "3. Add a new note title"
 	  puts "4. Add contents of a note"
 		puts "5. Delete a note"
-		puts "6. Save the list to students.csv"
-		puts "7. Load the list from students.csv"
+		puts "6. Save the notes to students.csv"
+		puts "7. Load the notes from students.csv"
 		puts "9. Exit"
 		puts "-------"
 	end
@@ -57,6 +57,7 @@ class List
 	end
 
 	def view_body
+		view_titles
 		puts "which note would you like to view"
 		index = gets.chomp.to_i
 		puts @list[index - 1][:body]
@@ -80,24 +81,29 @@ class List
 	end
 
 	def delete_note
+		view_titles
 		puts 'which note would you like to delete?'
 		index = gets.chomp.to_i
 		@list.slice!(index - 1)
 		@list
 	end
 
-	# def save_notes
-	# 	file = File.open("notes.csv", "w")
-	# 	@list.each do |note|
-	# 		note_data = [list[:title], list[:body]]
-	# 		file.puts note_data
-	# 	end
-	# end
-	#
-	# def load_notes
-	# 	file = File.open("notes.csv", "r")
-	# 	file.readlines.each do |note|
-	# 		title,body = note.chomp.split
-	# 	end
-	# end
+	def save_notes
+		# open the file for writing
+		file = File.open("notes.csv", "w")
+		@list.each do |note|
+			note_data = [note[:title], note[:body]]
+			csv_line = note_data.join(",")
+			file.puts csv_line
+		end
+	end
+
+	def load_notes
+		file = File.open("notes.csv", "r")
+		file.readlines.each do |note|
+			title, body = note.chomp.split(',')
+			@list << { :title => title, :body => body }
+		end
+		file.close
+	end
 end
